@@ -23,7 +23,7 @@ source ~/.bashrc
 git clone https://github.com/Pamenarti/ethereum-genesis-generator
 cd ethereum-genesis-generator
 docker build -t ethereum-genesis-generator .
-docker run --rm -it -u $UID -v $PWD/output:/data -v $PWD/config-example:/config ethereum-genesis-generator all
+docker run --rm -it -u $UID -v $PWD/output:/data -v $PWD/config-example/values.env:/config/values.env ethereum-genesis-generator all
 ```
 ```sh
 # Create the output directory
