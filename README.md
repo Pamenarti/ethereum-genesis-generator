@@ -5,7 +5,26 @@ Create a ethereum consensus/execution layer testnet genesis and optionally expos
 ### Examples
 
 You can provide your own configuration directory. Have a look at the example in [`config-example`](config-example).
+```
+go : 1.21.0
+# Eski Go sürümünü kaldır (varsa)
+sudo rm -rf /usr/local/go
 
+# Go 1.19'u indir
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+
+# Arşivi çıkart
+sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
+
+# PATH'e ekle (eğer eklenmemişse)
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+--------------------------------------
+git clone https://github.com/Pamenarti/ethereum-genesis-generator
+cd ethereum-genesis-generator
+docker build -t ethereum-genesis-generator .
+docker run --rm -it -u $UID -v $PWD/output:/data -v $PWD/config-example:/config ethereum-genesis-generator all
+```
 ```sh
 # Create the output directory
 mkdir output
